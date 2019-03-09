@@ -1,0 +1,31 @@
+<map edf:definitions="slothbot,editor_main">
+    <pathpointbreed id="pathpointbreed (1)" neighbors="pathpointbreed (2),pathpointbreed (3),pathpointbreed (5)" posX="-2468.7" posY="-270.39999" posZ="38.6" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (2)" neighbors="pathpointbreed (1),pathpointbreed (5)" posX="-2468.5" posY="-267.5" posZ="38.6" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (3)" neighbors="pathpointbreed (1),pathpointbreed (4),pathpointbreed (5),pathpointbreed (6)" posX="-2462.7" posY="-268.5" posZ="38.6" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (4)" neighbors="pathpointbreed (7),pathpointbreed (6),pathpointbreed (14),pathpointbreed (3)" posX="-2458.2" posY="-265.20001" posZ="38.6" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (5)" neighbors="pathpointbreed (2),pathpointbreed (6),pathpointbreed (1),pathpointbreed (3)" posX="-2465.2" posY="-267.10001" posZ="38.6" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (6)" neighbors="pathpointbreed (5),pathpointbreed (15),pathpointbreed (4),pathpointbreed (14),pathpointbreed (3),pathpointbreed (7)" posX="-2462.3999" posY="-265.89999" posZ="38.6" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (7)" neighbors="pathpointbreed (8),pathpointbreed (4),pathpointbreed (6)" posX="-2456.5" posY="-263.60001" posZ="38.7" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (8)" neighbors="pathpointbreed (9),pathpointbreed (7)" posX="-2455.8999" posY="-260.79999" posZ="38.7" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (9)" neighbors="pathpointbreed (10),pathpointbreed (8),pathpointbreed (14)" posX="-2457.7" posY="-258.39999" posZ="38.7" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (10)" neighbors="pathpointbreed (11),pathpointbreed (9)" posX="-2465.3" posY="-257.60001" posZ="38.6" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (11)" neighbors="pathpointbreed (12),pathpointbreed (10)" posX="-2469.3999" posY="-258.10001" posZ="38.5" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (12)" neighbors="pathpointbreed (13),pathpointbreed (11)" posX="-2469" posY="-260.5" posZ="38.5" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (13)" neighbors="pathpointbreed (15),pathpointbreed (12),pathpointbreed (14)" posX="-2463.1001" posY="-259.89999" posZ="38.6" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (14)" neighbors="pathpointbreed (6),pathpointbreed (4),pathpointbreed (15),pathpointbreed (13),pathpointbreed (9)" posX="-2460.3999" posY="-262.29999" posZ="38.6" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (15)" neighbors="pathpointbreed (6),pathpointbreed (13),pathpointbreed (14)" posX="-2463.3" posY="-262.70001" posZ="38.6" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    
+    <pathpointbreed id="pathpointbreed (16)" neighbors="pathpointbreed (28),pathpointbreed (18),pathpointbreed (20),pathpointbreed (23)" posX="-2403.8999" posY="-215.7" posZ="38.9" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (17)" neighbors="pathpointbreed (28),pathpointbreed (19),pathpointbreed (20),pathpointbreed (22)" posX="-2399.7" posY="-226.7" posZ="39.3" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (18)" neighbors="pathpointbreed (16),pathpointbreed (21),pathpointbreed (20),pathpointbreed (24)" posX="-2396.5" posY="-216.7" posZ="40.2" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (19)" neighbors="pathpointbreed (26),pathpointbreed (17),pathpointbreed (20),pathpointbreed (22)" posX="-2393.3" posY="-227.10001" posZ="40.5" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (20)" neighbors="pathpointbreed (17),pathpointbreed (27),pathpointbreed (16),pathpointbreed (28),pathpointbreed (19),pathpointbreed (21),pathpointbreed (18),pathpointbreed (26)" posX="-2396.1001" posY="-222.10001" posZ="40.3" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (21)" neighbors="pathpointbreed (18),pathpointbreed (22),pathpointbreed (20),pathpointbreed (27)" posX="-2388.8999" posY="-219.5" posZ="41.2" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (22)" neighbors="pathpointbreed (21),pathpointbreed (23),pathpointbreed (17),pathpointbreed (19)" posX="-2383.8999" posY="-220.2" posZ="41.4" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (23)" neighbors="pathpointbreed (22),pathpointbreed (25),pathpointbreed (24),pathpointbreed (27),pathpointbreed (16)" posX="-2387.5" posY="-223.39999" posZ="41.1" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (24)" neighbors="pathpointbreed (23),pathpointbreed (26),pathpointbreed (18)" posX="-2386.3" posY="-226.39999" posZ="41.2" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (25)" neighbors="pathpointbreed (23)" posX="-2383" posY="-224.2" posZ="41.5" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (26)" neighbors="pathpointbreed (24),pathpointbreed (19),pathpointbreed (27),pathpointbreed (20)" posX="-2389.6001" posY="-226.8" posZ="40.9" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (27)" neighbors="pathpointbreed (20),pathpointbreed (23),pathpointbreed (21),pathpointbreed (26)" posX="-2390.7" posY="-222.60001" posZ="40.9" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+    <pathpointbreed id="pathpointbreed (28)" neighbors="pathpointbreed (17),pathpointbreed (16),pathpointbreed (20)" posX="-2401" posY="-221.5" posZ="39.4" rotX="0" rotY="0" rotZ="0"></pathpointbreed>
+</map>

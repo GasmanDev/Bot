@@ -1,0 +1,39 @@
+<meta>
+    <info type="script" version="1.0.0"></info>
+    
+    <script src="tools/bone_attach/bone_attach.lua" type="server" />
+    <script src="tools/bone_attach/bone_attach_c.lua" type="client" />
+    <script src="tools/bone_attach/attach_func.lua" type="server" />
+    <script src="tools/bone_attach/attach_func.lua" type="client" />
+    <script src="tools/bone_attach/bone_pos_rot.lua" type="client" />
+    <!-- <script src="client.lua" type="client" /> -->
+    <script src="server/bot_server.lua" type="server" />
+    <script src="server/citizen_normal_table.lua" type="shared" />
+    <script src="server/citizen_normal.lua" type="server" />
+
+    <script src="server/armed_guard.lua" type="server" />
+
+    <script src="client/citizen_normal.lua" type="client" cache="false" />
+    <script src="client/bot_client.lua" type="client" cache="false" />
+    <script src="server.lua" type="server" />
+
+    <map src="node/citizen_walk.map" dimension="0"></map>
+    <map src="node/citizen_breed.map" dimension="0"></map>
+    <map src="node/citizen_faithful.map" dimension="0"></map>
+
+    <file src="images/bubble[1].png" />
+	<file src="images/bubble[2].png" />
+	<file src="images/bubble[3].png" />
+
+    <file src="anim/Fortnite pt1.ifp" />
+    <file src="anim/Fortnite pt2.ifp" />
+    <file src="anim/Fortnite pt3.ifp" />
+    <file src="anim/animguitar.ifp" />
+    <file src="anim/tindo.ifp" />
+
+    <file src="model/guitar.dff" />
+    <file src="model/guitar.txd" />
+
+
+ 
+</meta>
