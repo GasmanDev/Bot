@@ -13,6 +13,11 @@
 			- Armed.Type = [Guard]
 				- Type = Guard
 					+ Action = [Gatekeeper,Combat,Sniper,Rhino]
+
+	- Gatekeeper
+		+ Người canh cổng có nhiệm vụ đứng im và kiểm tra người muốn vào Safezone (Yêu cầu người đó không có súng trên tay)
+		+ Khi bị tấn công mà mục tiêu cách người canh cổng 30m thì sẽ lập tức chạy đến và đóng cổng safezone
+		+ Nếu người tấn công dưới 8k máu thì người canh cổng sẽ solo luôn cho nó máu
 	type: SERVER
 ]]
 
@@ -24,9 +29,9 @@ function createArmed(name, gender, skin, type, action, x, y, z, rot, interior, d
 	end
 	if skin == "random" or nil then 
 		if gender == "Male" then 
-			skin = table.random(citizenMaleSkins)
+			skin = table.random(guardMaleSkin)
 		else
-			skin = table.random(citizenFemaleSkins)
+			skin = table.random(guardFemaleSkin)
 		end
 	end
 	if not safezonename or safezonename == nil then
@@ -58,3 +63,5 @@ function createArmed(name, gender, skin, type, action, x, y, z, rot, interior, d
 	end
 	return ped
 end
+
+-- Guard Keeper Function

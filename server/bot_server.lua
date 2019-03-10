@@ -37,11 +37,14 @@ function spawnCitizenWalk( )
 	createCitizen(false, "random", "random", "Normal", "Listen", -2511.5, -258, 38.7, 248.001, 0, 0, "SF")
 	createCitizen(false, "random", "random", "Normal", "Listen", -2511.2, -260.10001, 38.8, 296.001, 0, 0, "SF")
 
-	createCitizen(false, "random", "random", "Normal", "Ceremony", -2462.6001, -309.10001, 41.7, 358.003, 0, 0, "SF")
+	createCitizen(false, "Male", (math.random(1,2) == 1 and 62 or 68), "Normal", "Ceremony", -2462.6001, -309.10001, 41.7, 358.003, 0, 0, "SF")
 
 	createCitizen(false, "random", "random", "Normal", "Faithful", -2465.3, -306.20001, 41.6, 272.004, 0, 0, "SF")
 	createCitizen(false, "random", "random", "Normal", "Faithful", -2460.6001, -305.89999, 41.7, 92.003, 0, 0, "SF")
 	createCitizen(false, "random", "random", "Normal", "Faithful", -2463.2, -303.5, 41.6, 184.004, 0, 0, "SF")
+
+	-- Armed
+	createArmed("Vệ Môn", "random", "random", "Guard", "Gatekeeper", -2587.7305,-271.3783,19.9389,139.3757, 0, 0, "SF")
 
 end
 function refreshCitizenWalk( )

@@ -24,7 +24,8 @@ addCommandHandler( "spawncitizen", addcitizen)
 
 function addguardgate( playersource, cmd, var )
 	local x,y,z = getElementPosition( playersource )
-	local ped =  createArmed(var, "random", "random", "Guard", "Gatekeeper", x, y, z, 0, 0, 0, "SF")
+	setElementPosition( playersource,-2587.7305,-271.3783,19.9389 )
+	local ped =  createArmed(var, "random", "random", "Guard", "Gatekeeper", -2587.7305,-271.3783,19.9389,139.3757, 0, 0, "SF")
 	
 end
 

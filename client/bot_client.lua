@@ -2,7 +2,7 @@
 addEventHandler("onClientRender", getRootElement(), 
 function ()
 	for k,v in ipairs(getElementsByType("ped")) do
-		if getElementData(v, "botType") == "Citizen" then
+		if getElementData(v, "botType") == "Citizen" or getElementData(v, "botType") == "Armed"  then
 			local prefix = ""
 			if getElementData (v, "Citizen.Action" ) == "Breed" then 
 				prefix = "[Nông dân]"

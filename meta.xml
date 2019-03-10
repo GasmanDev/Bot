@@ -15,6 +15,7 @@
 
     <script src="client/citizen_normal.lua" type="client" cache="false" />
     <script src="client/bot_client.lua" type="client" cache="false" />
+    <script src="server/armed_guard.lua" type="client" cache="false" />
     <script src="server.lua" type="server" />
 
     <map src="node/citizen_walk.map" dimension="0"></map>

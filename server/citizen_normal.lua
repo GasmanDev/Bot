@@ -162,18 +162,22 @@ function citizen_Move (ped,oldX,oldY,oldZ) --this function keeps the ped running
 		if getElementData(ped, "botType") == "Citizen" and getElementData(ped, "Citizen.Type") == "Normal" and
 		 (getElementData (ped, "Citizen.Action" ) == "Walk" or getElementData (ped, "Citizen.Action" ) == "Breed" or getElementData (ped, "Citizen.Action" ) == "Faithful")
 		 and not getElementData(ped, "Citizen.Dead") then
-			if getElementData(ped, "Citizen.Panic") and getElementData (ped, "Citizen.Action" ) ~= "Faithful" then
-				if getElementData(ped, "botGender") == "Male" then
-					setPedAnimation(ped, "ped", "sprint_civi")
+			if getElementData(ped, "Citizen.Panic") then
+				local time = 1000
+				if getElementData (ped, "Citizen.Action" ) == "Faithful"  then 
+					local randomanim = table.random(citizenListenAnims)
+					setPedAnimation(ped, randomanim[1], randomanim[2])
+					triggerClientEvent ( root, "setPedCustomAnimation", root, ped,randomanim[1], randomanim[2])
+					time = 5000
 				else
-					setPedAnimation(ped, "ped", "run_civi")
+					local anim = (getElementData(ped, "botGender") == "Male" and setPedAnimation(ped, "ped", "sprint_civi") or setPedAnimation(ped, "ped", "run_civi"))
 				end
 				citizenChanceTalking = math.random(1,5)
 				if citizenChanceTalking <= 2 and not getElementData(ped, "Citizen.Talking") then 
 					citizen_Talking(ped, 10)	
 				end
 				setPedRotation(ped, math.random(0, 360))
-				setTimer ( citizen_Move, 1000, 1, ped, oldX,oldY,oldZ)
+				setTimer ( citizen_Move, time, 1, ped, oldX,oldY,oldZ)
 				return
 			end
 			local pedhp = getElementHealth ( ped )
