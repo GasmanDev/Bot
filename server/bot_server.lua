@@ -1,7 +1,7 @@
 function initBot( )
 	-- Cần thay đổi khi add vào mode
 	createTeam("Survivor")
-	createTeam("Bandit")
+	createTeam("NonSurvivor")
 	createTeam("Zombie")
 
 	for i, elements in ipairs(getElementsByType("player")) do
@@ -9,9 +9,27 @@ function initBot( )
 	end
 	-- 
 	spawnCitizenWalk()
+	-- Safezone setup
+	local doorSafeZoneCol = createColSphere( -2543, -280, 35, 5.0 )
+	setElementData(doorSafeZoneCol, "Safezone.MainDoor.Col", true)
 end
 addEventHandler( "onResourceStart", getRootElement(), initBot )
-
+-- Safezone door
+function safeZoneDoorColHit ( hitElement, matchingDimension )
+	if getElementType (hitElement) == "player"then
+		if getElementData( source, "Safezone.MainDoor.Col" ) == true then
+			if getElementData( hitElement, "AcceptSFR") == false then -- Bọc sường vào lách luật sẽ bị set luôn NonSurvivor
+				setPlayerTeam( hitElement, getTeamFromName( "NonSurvivor" ))
+				setTimer( function()
+					if isElement(hitElement) then
+						setPlayerTeam( hitElement, getTeamFromName( "Survivor" ))
+					end
+				end, 900000, 1)
+			end
+		end
+	end
+end
+addEventHandler ( "onColShapeHit", getRootElement(), safeZoneDoorColHit )
 -- Citizen
 		-- Normal
 			-- Walk
@@ -20,6 +38,9 @@ function spawnCitizenWalk( )
 	for theKey,ped in ipairs(peds) do
 	   if getElementData(ped, "botType") == "Citizen" and getElementData(ped, "Citizen.Type") == "Normal" then 
 	    	destroyElement( ped )
+	   end
+	   if getElementData(ped, "botType") == "Armed" then
+			destroyElement( ped )
 	   end
 	end
 	walkSpawnPoint = getElementsByType ( "pathpointwalk" )

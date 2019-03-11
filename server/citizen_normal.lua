@@ -364,7 +364,7 @@ end
 ]]
 function singColHit ( hitElement, matchingDimension )
 	if getElementType (hitElement) == "player"then
-		if getElementData( source, "Citizen.Sing.Col" ) == true  and not getElementData(source, "Citizen.Dead") then
+		if getElementData( source, "Citizen.Sing.Col" ) == true  then
 			local x,y,z = getElementPosition(source)
 			triggerClientEvent( root, "playerHearCitizenSing", hitElement, source, getElementData( source, "Citizen.Sing.Url"), x, y, z )
 		end
@@ -419,14 +419,14 @@ end
 -- Citizen Ceremony
 function ceremonyColHit ( hitElement, matchingDimension )
 	if getElementType (hitElement) == "player"then
-		if getElementData( source, "Citizen.Ceremony.Col" ) == true  and not getElementData(source, "Citizen.Dead") then
+		if getElementData( source, "Citizen.Ceremony.Col" ) == true  then
 			triggerClientEvent( root, "playerEffectCeremony", hitElement)
 		end
 	end
 end
 addEventHandler ( "onColShapeHit", getRootElement(), ceremonyColHit )
 function ceremonyColLeave ( hitElement, matchingDimension )
-	if getElementType (hitElement) == "player"  and not getElementData(source, "Citizen.Dead") then
+	if getElementType (hitElement) == "player"  then
 		if getElementData( source, "Citizen.Ceremony.Col" ) == true then
 			triggerClientEvent( root, "playerStopEffectCeremony", hitElement)
 		end

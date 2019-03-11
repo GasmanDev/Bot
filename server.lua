@@ -2,9 +2,9 @@
 addEventHandler( "onResourceStart", getRootElement(), function ( )
 end )
 
--- addEventHandler( "onPlayerJoin", getRootElement(), function ( )
--- 	setPlayerTeam( source, getTeamFromName( "Player" ) )
--- end )
+addEventHandler( "onPlayerJoin", getRootElement(), function ( )
+	setPlayerTeam( source, getTeamFromName( "Survivor" ) )
+end )
 
 -- function addbot( playersource, cmd, var )
 -- 	setPlayerTeam( playersource, getTeamFromName( "Player" ) )

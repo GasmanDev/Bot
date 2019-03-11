@@ -15,7 +15,8 @@
 
     <script src="client/citizen_normal.lua" type="client" cache="false" />
     <script src="client/bot_client.lua" type="client" cache="false" />
-    <script src="server/armed_guard.lua" type="client" cache="false" />
+    <script src="client/armed_guard.lua" type="client" cache="false" />
+    
     <script src="server.lua" type="server" />
 
     <map src="node/citizen_walk.map" dimension="0"></map>
@@ -25,6 +26,7 @@
     <file src="images/bubble[1].png" />
 	<file src="images/bubble[2].png" />
 	<file src="images/bubble[3].png" />
+    <file src="images/safezonerules.png" />
 
     <file src="anim/Fortnite pt1.ifp" />
     <file src="anim/Fortnite pt2.ifp" />
