@@ -14,15 +14,17 @@
 				- Type = Guard
 					+ Action = [Gatekeeper,Combat,Sniper,Rhino]
 
-	- Gatekeeper
-		+ Người canh cổng có nhiệm vụ đứng im và kiểm tra người muốn vào Safezone (Yêu cầu người đó không có súng trên tay)
-		+ Khi bị tấn công mà mục tiêu cách người canh cổng 30m thì sẽ lập tức chạy đến và đóng cổng safezone
-		+ Nếu người tấn công dưới 8k máu thì người canh cổng sẽ solo luôn cho nó máu
+	- Gatekeeper [DONE]
+	- Combat [Done]
+	- Sniper [Done]
+	- Rhino [Done]
+
 	type: SERVER
 ]]
 
 -- Function Create Guard
-function createArmed(name, gender, skin, type, action, x, y, z, rot, interior, dimension, safezonename)
+function createArmed(name, gender, skin, type, action, x, y, z, rot, interior, dimension, safezonename, weapon)
+	if not weapon then weapon = (math.random(1,2) == 1 and 24 or 29) end
 	if not name then name = "Bảo vệ" end
 	if gender == "random" or nil then 
 		gender = (math.random(1,2) == 1 and "Male" or "Female")
@@ -37,37 +39,86 @@ function createArmed(name, gender, skin, type, action, x, y, z, rot, interior, d
 	if not safezonename or safezonename == nil then
 		safezonename = "SF"
 	end
-	-- local ped = createPed( skin, x, y, z, rot )
-	local ped = exports["slothbot"]:spawnBot (x,y,z,rot,skin,interior,dimension, getTeamFromName("Survivor"), (math.random(1,2) == 1 and 24 or 29), "guarding", nil, "normal")
+	local ped = nil
+	if action == "Gatekeeper" then
+		ped = createPed( skin, x, y, z, rot )
+	else
+		ped = exports["slothbot"]:spawnBot (x,y,z,rot,skin,interior,dimension, getTeamFromName("Survivor"), weapon, "guarding", nil, "normal")
+	end
 	setElementInterior(ped, interior )
 	setElementDimension(ped, dimension)
 	setElementData(ped, "isBot", true)
 	setElementData(ped, "botName", name )
+	setElementData(ped, "BotTeam", getTeamFromName("Survivor"))
 	setElementData(ped, "botGender", gender )
 	setElementData(ped, "botType", "Armed")
+	giveWeapon( ped, weapon, 99999, true )
 	-- Armed Data
 	setElementData(ped, "Armed.Type", type )
 	setElementData(ped, "Armed.Action", action )
 	setElementData(ped, "Armed.Dead", false )
 	setElementData(ped, "Armed.Safezone", safezonename )
+	setElementData(ped, "Armed.Target", nil )
 	-- Handlers
 	if type == "Guard" then
 		if action == "Gatekeeper" then
 			outputDebugString( "Gatekeeper CREATED")
 			local gateKeeperCol = createColSphere ( x,y,z, 10.0 )
 			setElementData(gateKeeperCol, "Armed.GateKeeper.Col", true)
+			setElementData(ped, "leader", nil)
 			outputDebugString( "Gatekeeper Col CREATED")
 		elseif action == "Combat" then
+			-- setBotGuard (ped, x, y, z, true)
 			outputDebugString( "Combat CREATED")
 		elseif action == "Sniper" then
 			outputDebugString( "Sniper CREATED")
 		elseif action == "Rhino" then
 			outputDebugString( "Rhino CREATED")
+			setTimer( updateGuardRhino, 500, 1, ped)
+			-- setElementData(ped, "status", "hunting" )
 		end
 	end
 	return ped
 end
-
+-- Guard function
+function updateGuardRhino( ped )
+	if isElement( ped ) and getElementData(ped, "botType") == "Armed" 
+		and getElementData(ped, "Armed.Type") == "Guard" and getElementData(ped, "Armed.Action") == "Rhino" then
+		local x,y,z = getElementPosition(ped)
+		local players = getElementsByType ( "player" )
+		for theKey,player in ipairs(players) do
+			local x2,y2,z2 = getElementPosition( player )
+			if getDistanceBetweenPoints3D( x, y, z, x2, y2, z2 ) < 20 then 
+				if getTeamName( getPlayerTeam( player ) ) ~= "Survivor" then
+					exports["slothbot"]:setBotWait(ped)
+				end
+			end
+		end
+	    setTimer( updateGuardRhino, 500, 1, ped)
+	end
+end
+addEvent( "playerFireNearGuard", true)
+function playerFireNearGuard( player, ped )		
+	if isElement( ped ) then
+		local peds = getElementsByType ( "ped" )
+		for theKey,thePed in ipairs(peds) do
+			if (getElementData (thePed, "isBot") == true) and getElementData(thePed, "botType") == "Armed" then
+				if getElementData(thePed, "Armed.Action") == "Rhino" then
+					exports["slothbot"]:setBotWait(thePed)
+				end
+			end
+		end
+	end 
+	if getTeamName( getPlayerTeam( player ) ) == "Survivor" then
+		setPlayerTeam(player, getTeamFromName( "NonSurvivor" ) )
+		setTimer( function()
+					if isElement(player) then
+						setPlayerTeam( player, getTeamFromName( "Survivor" ))
+					end
+				end, 900000, 1)
+	end
+end
+addEventHandler( "playerFireNearGuard", getRootElement(), playerFireNearGuard)
 -- Guard Keeper Function
 
 function gateKeeperColHit ( hitElement, matchingDimension )
@@ -87,11 +138,12 @@ function gateKeeperColLeave ( hitElement, matchingDimension )
 		if getElementData( source, "Armed.GateKeeper.Col" ) == true then
 			
 		end
-	-- elseif getElementType(hitElement) == "ped" and getElementData(hitElement, "botType") == "Armed" 
-	-- 	and getElementData(hitElement, "Armed.Type") == "Guard" and getElementData(hitElement, "Armed.Action") == "Gatekeeper" then 
-	-- 	local x, y, z = getElementPosition(source)
-	-- 	setElementPosition(hitElement, x,y,z)
-	-- 	setTimer ( setElementData, 400, 1, hitElement, "leader", nil )
+	elseif getElementType(hitElement) == "ped" and getElementData(hitElement, "botType") == "Armed" 
+		and getElementData(hitElement, "Armed.Type") == "Guard" and getElementData(hitElement, "Armed.Action") == "Gatekeeper" and
+		 not getElementData(hitElement, "Guard.Panic") then 
+		local x, y, z = getElementPosition(source)
+		setElementPosition(hitElement, x,y,z)
+		setElementData(hitElement, "leader", nil)
 	end
 end
 addEventHandler ( "onColShapeLeave", getRootElement(), gateKeeperColLeave )
@@ -127,4 +179,7 @@ function playerAcceptSFRules(player, accept)
 	
 end
 addEventHandler( "SafeZoneRulesClick", getRootElement(), playerAcceptSFRules)
--- -2543 -280 35
+function botFindRotation( x1, y1, x2, y2 ) 
+    local t = -math.deg( math.atan2( x2 - x1, y2 - y1 ) )
+    return t < 0 and t + 360 or t
+end

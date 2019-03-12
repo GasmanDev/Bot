@@ -37,6 +37,15 @@
     <file src="model/guitar.dff" />
     <file src="model/guitar.txd" />
 
+    <file src="model/rhino.dff" />
+    <file src="model/rhino.txd" />
+
+    <file src="model/daidao.dff" />
+    <file src="model/daidao.txd" />
+
+    <file src="model/bualon.dff" />
+    <file src="model/bualon.txd" />
+
 
  
 </meta>

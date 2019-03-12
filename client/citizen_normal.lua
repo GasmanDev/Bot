@@ -89,19 +89,12 @@ function citizenDamage( attacker, weapon, bodypart )
 				setPedAnimation(source,"ped","getup",3000,false,true,false,false)
 				-- triggerEvent("sync.message", root, source, 255, 204, 0, "HOẢNG LOẠN")
 			end
-			-- local x,y,z = getElementPosition( source )
-
-			-- local peds = getElementsByType ( "ped" )
-			-- for theKey,ped in ipairs(peds) do
-			-- 	if getElementData(ped, "botType") == "Citizen" and getElementData(ped, "isBot") == true then 
-			-- 		local x2,y2,z2 = getElementPosition( ped )
-			--    		if (getDistanceBetweenPoints3D(x,y,z,x2,y2,z2) < 100) then
-			-- 	    	setElementData( ped, "Citizen.Panic", true)
-			-- 	    	if isTimer( timerRevertPanic[ped] ) then killTimer( timerRevertPanic[ped] ) end
-			-- 			timerRevertPanic[ped] = setTimer( revertCitizenPanic, 90000, 1, ped)
-			-- 		end
-			--    end
-			-- end
+			if weapon == 0 then 
+                setElementData(source, "Citizen.Panic", true)
+                triggerServerEvent("playerFireNearGuard", attacker, attacker, source)
+                if isTimer( timerRevertPanic[source] ) then killTimer( timerRevertPanic[source] ) end
+				timerRevertPanic[source] = setTimer( revertCitizenPanic, 90000, 1, source)
+            end
 		end
 	end
 end

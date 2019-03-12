@@ -132,6 +132,21 @@ engineImportTXD(skinTXD, 1901)
 skinDFF = engineLoadDFF("model/guitar.dff", 1901)
 engineReplaceModel(skinDFF, 1901)
 
+skinTXD = engineLoadTXD("model/rhino.txd")
+engineImportTXD(skinTXD, 241)
+skinDFF = engineLoadDFF("model/rhino.dff", 241)
+engineReplaceModel(skinDFF, 241)
+
+weaponTXD = engineLoadTXD("model/bualon.txd")
+engineImportTXD(weaponTXD, 333)
+weaponDFF = engineLoadDFF("model/bualon.dff", 333)
+engineReplaceModel(weaponDFF, 333)
+
+weaponTXD = engineLoadTXD("model/daidao.txd")
+engineImportTXD(weaponTXD, 334)
+weaponDFF = engineLoadDFF("model/daidao.dff", 334)
+engineReplaceModel(weaponDFF, 334)
+
 -- custom anim
 addEventHandler("onClientResourceStart", resourceRoot,
     function ( startedRes )
